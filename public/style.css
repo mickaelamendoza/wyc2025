@@ -51,6 +51,16 @@ h2 {
     position: relative;
 }
 
+.section-container {
+    position: relative;
+    height: 100vh;
+    background: #e74c3c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
 
 /* Video Parallax Section */
 .parallax-video {
@@ -121,7 +131,8 @@ h2 {
     color: white;
     text-align: center;
     padding-top: 30vh;
-    z-index: 0; /* Lower z-index for section1 */
+    z-index: 0;
+    /* Lower z-index for section1 */
 }
 
 /* SVG Parallax Section */
@@ -130,7 +141,8 @@ h2 {
     height: 120vh;
     overflow: hidden;
     background: transparent;
-    z-index: 2; /* Higher z-index for the wave section */
+    z-index: 2;
+    /* Higher z-index for the wave section */
 }
 
 .wave-svg {
@@ -139,7 +151,8 @@ h2 {
     pointer-events: none;
     /* allows clicking through */
     /* Initial state */
-    transform: translateY(0); /* Initial state */
+    transform: translateY(0);
+    /* Initial state */
 }
 
 object {
@@ -297,11 +310,11 @@ td:first-child {
 }
 
 .Secondtable {
-  width:100%;
+    width: 100%;
 }
 
-.Secondtable td:first-child{
-  width:15%;
+.Secondtable td:first-child {
+    width: 15%;
 }
 
 .howto {
@@ -706,8 +719,8 @@ p {
         width: 100%;
     }
 
-    .Secondtable td:first-child{
-      width:30%;
+    .Secondtable td:first-child {
+        width: 30%;
     }
 
     .image-container {
