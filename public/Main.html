@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.cdnfonts.com/css/geizer" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/clofie" rel="stylesheet">
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyAVIP8hhHpS1Y-8REfRTehglDVudrjksJU",
+          authDomain: "wyc2025-7b584.firebaseapp.com",
+          projectId: "wyc2025-7b584",
+          storageBucket: "wyc2025-7b584.firebasestorage.app",
+          messagingSenderId: "1064922644317",
+          appId: "1:1064922644317:web:600622d3853ec302b6f2b4",
+          measurementId: "G-6XQXZHEB7T"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+    <title>Video and SVG Parallax</title>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/geizer');
+        @import url('https://fonts.cdnfonts.com/css/clofie');
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        h1 {
+            font-family: 'Geizer', sans-serif;
+            font-size: 6em;
+            font-weight: 800;
+            letter-spacing: 10px;
+        }
+
+        h2 {
+            font-family: 'Geizer', sans-serif;
+            font-size: 2em;
+            font-weight: 800;
+            letter-spacing: 10px;
+            color: #9bcccc;
+        }
+
+        .content,
+        .section {
+            overflow: auto;
+            padding: 10vh 10vh;
+        }
+
+        .logo-image {
+            height: auto;
+            width: 8em;
+        }
+
+        .section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* Video Parallax Section */
+        .parallax-video {
+            background:
+                linear-gradient(to top, #00000000, #00000000, #02020244, #02020244);
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .parallax-video video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        .countdown-container {
+            position: relative;
+            justify-content: center;
+            display: flex;
+            gap: 15px;
+        }
+
+        .countdown-box {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            color: #F0E059;
+            font-weight: 600;
+            min-width: 60px;
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .countdown-box .value {
+            font-size: 4em;
+            line-height: 1;
+        }
+
+        .countdown-box .label {
+            font-size: 2em;
+            color: rgb(214, 214, 214);
+            margin-top: 4px;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            padding-top: 30vh;
+        }
+
+        /* SVG Parallax Section */
+        .wave-section {
+            position: relative;
+            height: 120vh;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        .wave-svg {
+            position: absolute;
+            z-index: 0;
+            pointer-events: none;
+            /* allows clicking through */
+        }
+
+        object {
+            width: 100vw;
+        }
+
+        .wave-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: #fff;
+            height: 150vh;
+            font-size: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wyc-content {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .wyc-content img {
+            width: auto;
+            position: relative;
+            height: 21em;
+        }
+
+        .wyc-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* Extra content section */
+        .section {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+        }
+
+        .program {
+            background:
+                linear-gradient(to top, #0b387650, #0b387650, #0b3876, #0b3876),
+                url('WYCBG (2).png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .tab-container {
+            width: 100%;
+            height: 80%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .tab-buttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            gap: 10px;
+        }
+
+        .tab-btn {
+            height: 100%;
+            padding: 10px 20px;
+            background-color: #F0E059;
+            border: none;
+            border-radius: 10px 0 0 10px;
+            font-weight: bold;
+            font-size: 1em;
+            cursor: pointer;
+            color: #fff;
+            transition: background 0.3s;
+        }
+
+        .tab-btn:hover {
+            background-color: #be9840;
+        }
+
+        .tab-btn.active {
+            background-color: #ffffff;
+            color: #F0E059
+        }
+
+        .tab-content {
+            padding: 1em 2em;
+            width: 100%;
+            background:
+                linear-gradient(to top, #f5f5f5b4, #f5f5f5b4, #f5f5f5b4, #f5f5f5b4),
+                url('WYCBG (2).jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 0 10px 10px 0;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+        }
+
+        .tab-panel {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+            width: 100%;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tab-highlight {
+            color: #E7252D;
+            font-weight: bolder;
+        }
+
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        th,
+        td {
+            font-size: 1em;
+            font-weight: 800;
+            font-family: 'Clofie', sans-serif;
+            text-align: left;
+            border: 1px solid transparent;
+            /* Transparent border */
+        }
+
+        td:first-child {
+            font-weight: 500;
+            width: 30%;
+        }
+
+        .howto {
+            background-color: #3A9D9D;
+
+        }
+
+        .festival {
+            background-image: url('WYCBG.jpg');
+        }
+
+        .collage {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .image-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .image-container {
+            width: 100%;
+            height: 20em;
+            overflow: hidden;
+            position: relative;
+            padding: 10px;
+            gap: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-container img,
+        .card {
+            background-color: aliceblue;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+            width: 60%;
+            height: 12em;
+            object-fit: cover;
+            transition: transform 0.2s ease-out;
+            transform: translateX(0);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #111;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #card1,
+        #card7,
+        #card5 {
+            background-color: #E7252D;
+        }
+
+        #card6,
+        #card4 {
+            background-color: #F0E059;
+        }
+
+        #card2,
+        #card3 {
+            background-color: #17406F;
+        }
+
+        .champions {
+            background:
+                linear-gradient(to top, #f5f5f5b4, #f5f5f5b4, #f5f5f5b4, #f5f5f5b4),
+                url('The Ark of Champions Logo.png');
+
+            background-size: contain;
+            /* or specify dimensions like 200px 200px */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #F5F5F5;
+        }
+
+        .champion-info {
+            border-radius: 12px;
+            padding: 10px;
+            font-family: 'Clofie', sans-serif;
+            font-size: 25px;
+            font-weight: 600;
+            height: 20%;
+        }
+
+
+        .champion-carousel {
+            display: flex;
+            height: 50%;
+        }
+
+        .champion-carousel-item {
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .champion-carousel-item img {
+            width: 7em;
+            height: 11em;
+            object-fit: cover;
+            transition: transform 0.3s;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .champion-carousel-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .champion-carousel-item.selected img {
+            transform: scale(1.1);
+        }
+
+        .champion-carousel-item .caption {
+            display: flex;
+            font-family: 'Clofie', sans-serif;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 8px;
+            font-size: 14px;
+            color: #333;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            height: 0;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+
+        }
+
+        h4,
+        h2,
+        p {
+            margin: 0;
+            padding: 10px;
+        }
+
+        .champion-carousel-item.selected .caption {
+            opacity: 1;
+            height: auto;
+        }
+
+        .merch {
+            background-color: #0B3876;
+        }
+
+        .carousel-container {
+            width: 90%;
+            height: 90%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 20px;
+            padding: 20px;
+            scrollbar-width: none;
+        }
+
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel-item {
+            width: 15em;
+            height: 20em;
+            background: #fff;
+            color: #000;
+            border-radius: 12px;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .carousel-image-overflow {
+            width: 100%;
+            height: 10em;
+            overflow: hidden;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+
+        }
+
+        .carousel-item img {
+            width: auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-item p {
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .carousel-btn {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+            font-size: 2rem;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+            transition: background 0.3s;
+        }
+
+        .carousel-btn:hover {
+            border: 1px solid #6e6e6e;
+        }
+
+        .carousel-btn.left {
+            left: 0;
+        }
+
+        .carousel-btn.right {
+            right: 0;
+        }
+
+
+        .faq {
+            background:
+                linear-gradient(to top, #0b3876d8, #0b3876d8, #0b3876, #0b3876d8, #0b3876d8),
+                url('WYCBG (1).png');
+        }
+
+        .accordion {
+            font-family: 'Clofie', sans-serif;
+            font-size: 1em;
+            font-weight: 400;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .accordion-header {
+            width: 100%;
+            border-radius: 8px;
+            padding: 0 1em;
+            background-color: #222;
+            color: white;
+            font-family: 'Clofie', sans-serif;
+            font-size: 1em;
+            font-weight: 400;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background-color: #444;
+
+        }
+
+        .arrow {
+            font-size: 2em;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active {
+            transition: transform 0.3s ease;
+            border-radius: 8px 8px 0 0;
+
+        }
+
+        .accordion-header.active .arrow {
+            transition: transform 0.5s ease;
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            background: #f9f9f9;
+            transition: max-height 0.4s ease;
+            padding: 0 1rem;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .accordion-content p {
+            margin: 1rem 0;
+        }
+
+        .spotify {
+            background-color: #F0E059;
+        }
+
+        .sponsors {
+            background-color: #1E1E1E;
+        }
+
+        .marquee-wrapper {
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 10px 0;
+            width: 100%;
+        }
+
+        .marquee {
+            display: inline-flex;
+            gap: 100px;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Video Parallax -->
+    <div class="parallax-video">
+        <video autoplay muted loop>
+            <source src="wyc.mp4" type="video/mp4" />
+            Your browser does not support HTML5 video.
+        </video>
+        <div class="content" id="section1">
+            <h1>WORLD YOUTH CONGRESS 2025</h1>
+            <div id="countdown">
+                <div class="countdown-container">
+                    <div class="countdown-box">
+                        <div class="value" id="days">00</div>
+                        <div class="label">Days</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div class="value" id="hours">00</div>
+                        <div class="label">Hours</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div class="value" id="minutes">00</div>
+                        <div class="label">Minutes</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div class="value" id="seconds">00</div>
+                        <div class="label">Seconds</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- SVG Parallax with Content -->
+    <div class="wave-section">
+        <div class="wave-svg">
+            <object id="wave" type="image/svg+xml" data="Figma.svg"></object>
+        </div>
+        <div class="wave-content">
+            <div class="wyc-content">
+                <div class="wyc-text">
+                    <h2>Wave Overlay Content</h2>
+                    <p>This content sits above the SVG wave.</p>
+                </div>
+                <img src="WYC 2025 Official Logo [Main].png" alt="1" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Regular Content Section -->
+    <div class="program ">
+        <div class="section" id="section2">
+            <h2> Program Flow</h2>
+            <div class="tab-container">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="openTab(event, 'tab1')">Day 1</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab2')">Day 2</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tab3')">Day 3</button>
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-panel active" id="tab1">
+                        <table>
+                            <tr>
+                                <td>1:00 PM</td>
+                                <td>Confession</td>
+                            </tr>
+                            <tr>
+                                <td>3:00 PM</td>
+                                <td>Gates Open</td>
+                            </tr>
+                            <tr>
+                                <td>4:00 PM</td>
+                                <td>Holy Rosary</td>
+                            </tr>
+                            <tr>
+                                <td>4:30 PM</td>
+                                <td>Celebration of the Holy Eucharist</td>
+                            </tr>
+                            <tr>
+                                <td>6:00 PM</td>
+                                <td>Dinner</td>
+                            </tr>
+                            <tr>
+                                <td>7:00 PM</td>
+                                <td>Opening Worship</td>
+                            </tr>
+                            <tr>
+                                <td>7:30 PM</td>
+                                <td>Welcoming Remarks</td>
+                            </tr>
+                            <tr>
+                                <td>8:30 PM</td>
+                                <td>WYC Youth Festival</td>
+                            </tr>
+                            <tr>
+                                <td>10:15 PM</td>
+                                <td>Fellowship Night</td>
+                            </tr>
+                            <tr>
+                                <td>10:45 PM</td>
+                                <td>Closing Prayer</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tab-panel" id="tab2">
+                        <table>
+                            <tr>
+                                <td>6:30 AM</td>
+                                <td>Breakfast</td>
+                            </tr>
+                            <tr>
+                                <td>7:30 AM</td>
+                                <td>Holy Rosary</td>
+                            </tr>
+                            <tr>
+                                <td>8:00 AM</td>
+                                <td>Opening Worship</td>
+                            </tr>
+                            <tr>
+                                <td>9:00 AM</td>
+                                <td class="tab-highlight">Session 1: Anchored in Prayer</td>
+                            </tr>
+                            <tr>
+                                <td>10:30 AM</td>
+                                <td>Exposition of the Blessed Sacrament</td>
+                            </tr>
+                            <tr>
+                                <td>11:00 AM</td>
+                                <td>Celebration of the Holy Eucharist</td>
+                            </tr>
+                            <tr>
+                                <td>12:15 PM</td>
+                                <td>Lunch</td>
+                            </tr>
+                            <tr>
+                                <td>1:00 PM</td>
+                                <td>Afternoon Worship</td>
+                            </tr>
+                            <tr>
+                                <td>1:20 PM</td>
+                                <td>Voyage Expo | Core Servants Assembly | Couple Coordinators Assembly
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3:30 PM</td>
+                                <td>The Ark of Champions</td>
+                            </tr>
+                            <tr>
+                                <td>6:00 PM</td>
+                                <td>Dinner</td>
+                            </tr>
+                            <tr>
+                                <td>7:00 PM</td>
+                                <td>Evening Worship</td>
+                            </tr>
+                            <tr>
+                                <td>7:50 PM</td>
+                                <td>LCSC Talk</td>
+                            </tr>
+                            <tr>
+                                <td>8:30 PM</td>
+                                <td class="tab-highlight">Session 2: Anchored in Christ</td>
+                            </tr>
+                            <tr>
+                                <td>9:30 PM</td>
+                                <td>Praisefest</td>
+                            </tr>
+
+                        </table>
+                    </div>
+                    <div class="tab-panel" id="tab3">
+                        <table>
+                            <tr>
+                                <td>6:30 AM</td>
+                                <td>Breakfast</td>
+                            </tr>
+                            <tr>
+                                <td>7:30 AM</td>
+                                <td>Holy Rosary</td>
+                            </tr>
+                            <tr>
+                                <td>7:50 AM</td>
+                                <td>Celebration of the Holy Eucharist</td>
+                            </tr>
+                            <tr>
+                                <td>9:20 AM</td>
+                                <td>Morning Worship</td>
+                            </tr>
+                            <tr>
+                                <td>10:40 AM</td>
+                                <td class="tab-highlight">Session 3: Anchored in Mission</td>
+                            </tr>
+                            <tr>
+                                <td>12:15 AM</td>
+                                <td>WYC Awards</td>
+                            </tr>
+                            <tr>
+                                <td>12:30 PM</td>
+                                <td>SDE & WYC 2026</td>
+                            </tr>
+                            <tr>
+                                <td>12:45 PM</td>
+                                <td>Lunch</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="howto">
+        <div class="section" id="section3">
+            <h2>How to get there?</h2>
+
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d991342.2107875862!2d120.56459264925965!3d14.76623114721674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!1m5!1m1!1s0x3397b7eadd63a1df:0xa6f6a02c480fc32c!2m2!1d121.0577149!2d14.6192831!1m5!1m1!1s0x3397331ddff50b67:0xf841548449ecf743!2m2!1d121.096316!2d15.56361!3e3!5i3"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
+        </div>
+    </div>
+
+    <div class="festival">
+
+        <div class="collage">
+            <div class="image-wrapper">
+                <div class="image-container" data-direction="left">
+                    <img src="WYC Youth Festival [FOR LIGHT].png" alt="1" />
+                    <div class="card" id="card1">Hello</div>
+                    <img src="LIT Festival Logo.png" alt="1" />
+
+                    <div class="card" id="card2">Hello</div>
+                </div>
+            </div>
+
+            <div class="image-wrapper">
+                <div class="image-container" data-direction="right">
+                    <div class="card" id="card3">Hello</div>
+                    <img src="All Stars Presentations Logo.png" alt="2" />
+                    <div class="card" id="card4">Hello</div>
+                </div>
+            </div>
+
+            <div class="image-wrapper">
+                <div class="image-container" data-direction="left">
+                    <div class="card" id="card6">Hello</div>
+                    <img src="Praise & Fashion Logo [For LIGHT].png" alt="3" />
+                    <div class="card" id="card7">Hello</div>
+                    <img src="MFC Youth Awards Logo.png" alt="3" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="champions">
+
+        <div class="section" id="section4">
+            <h2>The ark of Champions</h2>
+            <div class="champion-info">
+                <p>This year’s ark names will draw inspiration from saints and the virtues they embodied—qualities we
+                    strive
+                    to reflect in our own lives.</p>
+            </div>
+            <div class="champion-carousel">
+                <div class="champion-carousel-item">
+                    <img src="WYC LOGOS-01.png" alt="Image 1">
+                    <div class="caption">
+                        <h4>St. John Paul II: Heralds of Holiness</h4>
+                        <p>known for his strong connection with the youth, emphasized the important role of young people
+                            in the Catholic Church. May we, just like St. John Paul II, pursue holiness every day.</p>
+                        <p>Is this your team? Join the group chat <a href=""> here</a></p>
+                    </div>
+                </div>
+                <div class="champion-carousel-item">
+                    <img src="WYC LOGOS-02.png" alt="Image 2">
+                    <div class="caption">
+                        <h4>St. Pedro Calungsod: Vanguards of Virtue</h4>
+                        <p>a Filipino catechist, exemplified unwavering faith and bravery amid persecution. May we
+                            follow St. Pedro Calungsod's example of being guardians of our faith, anchored in Christ,
+                            regardless of the cost.</p>
+                        <p>Is this your team? Join the group chat <a href=""> here</a></p>
+                    </div>
+                </div>
+                <div class="champion-carousel-item">
+                    <img src="WYC LOGOS-03.png" alt="Image 3">
+                    <div class="caption">
+                        <h4>St. Padre Pio: Pillars of Perseverance</h4>
+                        <p>His steadfast faith, characterized by his stigmata and many hours of prayer, showed
+                            tremendous endurance. May we, too, like St. Padre Pio, stand as pillars of perseverance in
+                            our faith.</p>
+                        <p>Is this your team? Join the group chat <a href=""> here</a></p>
+                    </div>
+                </div>
+                <div class="champion-carousel-item">
+                    <img src="WYC LOGOS-04.png" alt="Image 3">
+                    <div class="caption">
+                        <h4>St. Therese of Lisieux: Missionaries of Meekness</h4>
+                        <p>with her "Little Way" of spiritual childhood and simple faith, demonstrated the strength of
+                            meekness. May we, as St. Therese, be missionaries of humility.</p>
+                        <p>Is this your team? Join the group chat <a href=""> here</a></p>
+                    </div>
+                </div>
+                <div class="champion-carousel-item">
+                    <img src="WYC LOGOS-05.png" alt="Image 3">
+                    <div class="caption">
+                        <h4>St. Joseph of Cupertino: Witnesses of Wisdom</h4>
+                        <p>though known for his mystical gifts and miraculous levitations, he is a true witness of
+                            divine wisdom. As MFC Youth, like St. Joseph of Cupertino, may we have a heart that listens,
+                            trusts, and obeys the commands of God.</p>
+                        <p>Is this your team? Join the group chat <a href=""> here</a></p>
+                    </div>
+                </div>
+                <div class="champion-carousel-item">
+                    <img src="WYC LOGOS-06.png" alt="Image 3">
+                    <div class="caption">
+                        <h4>
+                            St. Maria Goretti: Crusaders of Chastity</h4>
+                        <p>at just eleven years old, faced violence with remarkable courage. As MFC Youth, may we follow
+                            the example of St. Maria Goretti, standing firm in our convictions and becoming true
+                            crusaders of chastity in today’s world.</p>
+                        <p>Is this your team? Join the group chat <a href=""> here</a></p>
+                    </div>
+                </div>
+                <div class="champion-carousel-item">
+                    <img src="WYC LOGOS-07.png" alt="Image 3">
+                    <div class="caption">
+                        <h4>Bl. Carlo Acutis: Stewards of the Sacraments</h4>
+                        <p>a young Italian teenager, is known for his deep love for the Eucharist and his devotion to
+                            Eucharistic Adoration. As MFC Youth, may we follow the example of Bl. Carlo Acutis and grow
+                            in our love for Jesus in the Eucharist.
+                        </p>
+                        <p>Is this your team? Join the group chat <a href=""> here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <div class="merch">
+        <div class="section" id="section5">
+            <h2>Signs and Wonders Merchandise</h2>
+            <div class="carousel-container">
+
+                <div class="carousel">
+                    <div class="carousel-item">
+                        <div class="carousel-image-overflow">
+                            <img src="WYCMerch (1).PNG" alt="WYC Shirt 1" />
+                        </div>
+                        <p>WYC T-Shirt (Black)</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-image-overflow">
+                            <img src="WYCMerch (2).PNG" alt="WYC Cap" />
+                        </div>
+                        <p>WYC Cap</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-image-overflow">
+                            <img src="WYCMerch (3).PNG" alt="WYC Hoodie" />
+                        </div>
+                        <p>WYC Hoodie</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-image-overflow">
+                            <img src="WYCMerch (4).PNG" alt="WYC Lanyard" />
+                        </div>
+                        <p>WYC Lanyard</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-image-overflow">
+                            <img src="WYCMerch (5).PNG" alt="WYC Tote Bag" />
+                        </div>
+                        <p>WYC Tote Bag</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-image-overflow">
+                            <img src="WYCMerch (6).PNG" alt="WYC Notebook" />
+                        </div>
+                        <p>WYC Notebook</p>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button class="carousel-btn left" onclick="scrollCarousel(-1)">&#10094;</button>
+
+                <button class="carousel-btn right" onclick="scrollCarousel(1)">&#10095;</button>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <div class="faq">
+
+        <div class="section" id="section6">
+            <h2>Frequently Asked Questions</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>What is WYC?</span>
+                        <span class="arrow">&#9662;</span> <!-- Down arrow -->
+                    </button>
+                    <div class="accordion-content">
+                        <p>The World Youth Congress (WYC) is a global gathering of youth for empowerment, worship, and
+                            community.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>When is it happening?</span>
+                        <span class="arrow">&#9662;</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>WYC 2025 is scheduled for July 15–20, 2025.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>How can I join?</span>
+                        <span class="arrow">&#9662;</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>You can register online via the official website or through your local church coordinators.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>How can I join?</span>
+                        <span class="arrow">&#9662;</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>You can register online via the official website or through your local church coordinators.
+                        </p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <span>How can I join?</span>
+                        <span class="arrow">&#9662;</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>You can register online via the official website or through your local church coordinators.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="spotify">
+        <div class="section" id="section7">
+            <h3>Listen now on Spotify!</h3>
+            <iframe style="border-radius:12px; height: 100%;"
+                src="https://open.spotify.com/embed/artist/1BRw82QWckgBC9hwMtYIYr?utm_source=generator" width="100%"
+                height="352" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <div class="sponsors">
+        <div class="section" id="section7">
+            <h3>Thank you sponsors</h3>
+            <div class="marquee-wrapper">
+                <div class="marquee">
+                    <img src="WYC LOGOS-01.png" alt="Brand 1" height="100">
+                    <img src="WYC LOGOS-02.png" alt="Brand 2" height="100">
+                    <img src="WYC LOGOS-03.png" alt="Brand 3" height="100">
+                    <img src="WYC LOGOS-04.png" alt="Brand 4" height="100">
+                    <img src="WYC LOGOS-05.png" alt="Brand 5" height="100">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- scroll button  -->
+
+
+    <script>
+
+
+
+        //for wave section
+        const wave = document.getElementById('wave');
+
+        wave.addEventListener('load', () => {
+            const svg = wave.contentDocument.querySelector('svg');
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                const parallaxY = scrollY * 0.2;
+                svg.style.transform = `translateY(${parallaxY}px)`;
+            });
+        });
+
+        //countdown
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const target = new Date("May 30, 2025 00:00:00").getTime();
+            const diff = target - now;
+
+            if (diff <= 0) {
+                document.querySelector('.countdown-container').innerHTML = "The event has started!";
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = days.toString().padStart(2, '0');
+            document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        //carousel
+
+        const items = document.querySelectorAll('.champion-carousel-item');
+        items.forEach(item => {
+            item.querySelector('img').addEventListener('click', () => {
+                items.forEach(i => i.classList.remove('selected'));
+                item.classList.add('selected');
+            });
+        });
+
+
+
+        function scrollCarousel(direction) {
+            const carousel = document.querySelector('.carousel');
+            const scrollAmount = 300;
+            carousel.scrollBy({
+                left: scrollAmount * direction,
+                behavior: 'smooth'
+            });
+        }
+
+        //tabs
+        function openTab(evt, tabId) {
+            const tabPanels = document.querySelectorAll('.tab-panel');
+            const tabButtons = document.querySelectorAll('.tab-btn');
+
+            // Hide all tab panels
+            tabPanels.forEach(panel => panel.classList.remove('active'));
+
+            // Remove 'active' from all buttons
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+
+            // Show selected panel
+            document.getElementById(tabId).classList.add('active');
+
+            // Highlight clicked tab
+            evt.currentTarget.classList.add('active');
+        }
+
+        // for section fade animation
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll(".section");
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                            // Uncomment below if you want the animation only once
+                            // observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                {
+                    threshold: 0.2,
+                }
+            );
+
+            sections.forEach((section) => {
+                observer.observe(section);
+            });
+        });
+
+        //accordion 
+        document.querySelectorAll('.accordion-header').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const isActive = button.classList.contains('active');
+
+                // Close all others
+                document.querySelectorAll('.accordion-header').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+
+                // Toggle current
+                if (!isActive) {
+                    button.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        });
+
+        // scroll button
+        function animateImages() {
+            const containers = document.querySelectorAll('.image-container');
+
+            containers.forEach(container => {
+                const rect = container.getBoundingClientRect();
+                const direction = container.dataset.direction;
+                const scrollProgress = rect.top / window.innerHeight;
+                const shift = Math.max(-50, Math.min(50, (0.5 - scrollProgress) * 100));
+
+                container.querySelectorAll('img, .card').forEach(el => {
+                    el.style.transform = `translateX(${direction === "left" ? -shift : shift}px)`;
+                });
+            });
+        }
+
+        window.addEventListener('scroll', animateImages);
+        window.addEventListener('resize', animateImages);
+        window.addEventListener('load', animateImages);
+    </script>
+
+</body>
+
+</html>

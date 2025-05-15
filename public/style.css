@@ -1,0 +1,797 @@
+@import url('https://fonts.cdnfonts.com/css/geizer');
+@import url('https://fonts.cdnfonts.com/css/clofie');
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+h1 {
+    font-family: 'Geizer', sans-serif;
+    font-size: 6em;
+    font-weight: 800;
+    letter-spacing: 10px;
+}
+
+h2 {
+    font-family: 'Geizer', sans-serif;
+    font-size: 2em;
+    font-weight: 800;
+    letter-spacing: 10px;
+    color: #9bcccc;
+}
+
+.content,
+.section {
+    overflow: auto;
+    padding: 10vh 10vh;
+}
+
+.logo-image {
+    height: auto;
+    width: 8em;
+}
+
+.section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.container {
+    height: auto;
+    position: relative;
+}
+
+
+/* Video Parallax Section */
+.parallax-video {
+    background:
+        linear-gradient(to top, #00000000, #00000000, #02020244, #02020244);
+    height: 100vh;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    background: #3498db;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.parallax-video video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    object-fit: cover;
+}
+
+.countdown-container {
+    position: relative;
+    justify-content: center;
+    display: flex;
+    gap: 15px;
+}
+
+.countdown-box {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    color: #F0E059;
+    font-weight: 600;
+    min-width: 60px;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.countdown-box .value {
+    font-size: 4em;
+    line-height: 1;
+}
+
+.countdown-box .label {
+    font-size: 2em;
+    color: rgb(214, 214, 214);
+    margin-top: 4px;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    padding-top: 30vh;
+    z-index: 0; /* Lower z-index for section1 */
+}
+
+/* SVG Parallax Section */
+.wave-section {
+    position: relative;
+    height: 120vh;
+    overflow: hidden;
+    background: transparent;
+    z-index: 2; /* Higher z-index for the wave section */
+}
+
+.wave-svg {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    /* allows clicking through */
+    /* Initial state */
+    transform: translateY(0); /* Initial state */
+}
+
+object {
+    width: 100vw;
+}
+
+.wave-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+    height: 150vh;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wyc-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.wyc-content img {
+    width: auto;
+    position: relative;
+    height: 21em;
+}
+
+.wyc-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Extra content section */
+.section {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.program {
+    background:
+        linear-gradient(to top, #0b387650, #0b387650, #0b3876, #0b3876),
+        url('WYCBG (2).png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.tab-container {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.tab-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.tab-btn {
+    height: 100%;
+    padding: 10px 20px;
+    background-color: #F0E059;
+    border: none;
+    border-radius: 10px 0 0 10px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    color: #fff;
+    transition: background 0.3s;
+}
+
+.tab-btn:hover {
+    background-color: #be9840;
+}
+
+.tab-btn.active {
+    background-color: #ffffff;
+    color: #F0E059
+}
+
+.tab-content {
+    padding: 1em 2em;
+    width: 100%;
+    background:
+        linear-gradient(to top, #f5f5f5b4, #f5f5f5b4, #f5f5f5b4, #f5f5f5b4),
+        url('WYCBG (2).jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.tab-panel {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+    width: 100%;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tab-highlight {
+    color: #E7252D;
+    font-weight: bolder;
+}
+
+
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+th,
+td {
+    font-size: 1em;
+    font-weight: 800;
+    font-family: 'Clofie', sans-serif;
+    text-align: left;
+    border: 1px solid transparent;
+    /* Transparent border */
+}
+
+td:first-child {
+    font-weight: 500;
+    width: 30%;
+}
+
+.Secondtable {
+  width:100%;
+}
+
+.Secondtable td:first-child{
+  width:15%;
+}
+
+.howto {
+    background-color: #3A9D9D;
+
+}
+
+.festival {
+    background-image: url('WYCBG.jpg');
+}
+
+.collage {
+    display: flex;
+    flex-direction: column;
+}
+
+.image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.image-container {
+    width: 100%;
+    height: 20em;
+    overflow: hidden;
+    position: relative;
+    padding: 10px;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container img,
+.card {
+    background-color: aliceblue;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    width: 60%;
+    height: 12em;
+    object-fit: cover;
+    transition: transform 0.2s ease-out;
+    transform: translateX(0);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#card1,
+#card7,
+#card5 {
+    background-color: #E7252D;
+}
+
+#card6,
+#card4 {
+    background-color: #F0E059;
+}
+
+#card2,
+#card3 {
+    background-color: #17406F;
+}
+
+.champions {
+    background:
+        linear-gradient(to top, #f5f5f5b4, #f5f5f5b4, #f5f5f5b4, #f5f5f5b4),
+        url('The Ark of Champions Logo.png');
+
+    background-size: contain;
+    /* or specify dimensions like 200px 200px */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #F5F5F5;
+}
+
+.champion-info {
+    border-radius: 12px;
+    padding: 10px;
+    font-family: 'Clofie', sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    height: 20%;
+}
+
+
+.champion-carousel {
+    display: flex;
+    height: 100%;
+}
+
+.champion-carousel-item {
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.champion-carousel-item img {
+    width: 7em;
+    height: 11em;
+    object-fit: cover;
+    transition: transform 0.3s;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.champion-carousel-item img:hover {
+    transform: scale(1.05);
+}
+
+.champion-carousel-item.selected img {
+    transform: scale(1.1);
+}
+
+.champion-carousel-item .caption {
+    display: flex;
+    font-family: 'Clofie', sans-serif;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #333;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    height: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+
+}
+
+h4,
+h2,
+p {
+    margin: 0;
+    padding: 10px;
+}
+
+.champion-carousel-item.selected .caption {
+    opacity: 1;
+    height: auto;
+}
+
+.merch {
+    background-color: #0B3876;
+}
+
+.carousel-container {
+    width: 90%;
+    height: 90%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 20px;
+    scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-item {
+    width: 15em;
+    height: 20em;
+    background: #fff;
+    color: #000;
+    border-radius: 12px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.carousel-image-overflow {
+    width: 100%;
+    height: 10em;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+
+}
+
+.carousel-item img {
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-item p {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.carousel-btn {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background 0.3s;
+}
+
+.carousel-btn:hover {
+    border: 1px solid #6e6e6e;
+}
+
+.carousel-btn.left {
+    left: 0;
+}
+
+.carousel-btn.right {
+    right: 0;
+}
+
+
+.faq {
+    background:
+        linear-gradient(to top, #0b3876d8, #0b3876d8, #0b3876, #0b3876d8, #0b3876d8),
+        url('WYCBG (1).png');
+}
+
+.accordion {
+    font-family: 'Clofie', sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.accordion-header {
+    width: 100%;
+    border-radius: 8px;
+    padding: 0 1em;
+    background-color: #222;
+    color: white;
+    font-family: 'Clofie', sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: #444;
+
+}
+
+.arrow {
+    font-size: 2em;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active {
+    transition: transform 0.3s ease;
+    border-radius: 8px 8px 0 0;
+
+}
+
+.accordion-header.active .arrow {
+    transition: transform 0.5s ease;
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    background: #f9f9f9;
+    transition: max-height 0.4s ease;
+    padding: 0 1rem;
+    border-radius: 0 0 8px 8px;
+}
+
+.accordion-content p {
+    margin: 1rem 0;
+}
+
+.spotify {
+    background-color: #F0E059;
+}
+
+.sponsors {
+    background-color: #1E1E1E;
+}
+
+.marquee-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.marquee {
+    display: inline-flex;
+    gap: 100px;
+    animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .content,
+    .section {
+        padding: 5vh 5vh;
+    }
+
+    .countdown-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .countdown-box {
+        width: 100px;
+        height: 100px;
+    }
+
+    .countdown-box .value {
+        font-size: 3em;
+    }
+
+    .countdown-box .label {
+        font-size: 1.5em;
+    }
+
+    .wyc-content {
+        flex-direction: column;
+    }
+
+    .wyc-content img {
+        height: 15em;
+    }
+
+    .tab-container {
+        flex-direction: column;
+    }
+
+    .tab-buttons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .tab-btn {
+        border-radius: 10px 10px 0 0;
+    }
+
+    .tab-content {
+        border-radius: 0 0 10px 10px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .Secondtable td:first-child{
+      width:30%;
+    }
+
+    .image-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .image-container img,
+    .card {
+        width: 90%;
+        height: 10em;
+    }
+
+    .champion-carousel {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .champion-carousel-item img {
+        width: 5em;
+        height: 9em;
+    }
+
+    .carousel-item {
+        width: 10em;
+        height: 15em;
+    }
+
+    .carousel-image-overflow {
+        height: 7em;
+    }
+
+    .accordion-header {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+        letter-spacing: 5px;
+    }
+
+    h2 {
+        font-size: 1.2em;
+        letter-spacing: 5px;
+    }
+
+    .countdown-box {
+        width: 80px;
+        height: 80px;
+    }
+
+    .countdown-box .value {
+        font-size: 2em;
+    }
+
+    .countdown-box .label {
+        font-size: 1em;
+    }
+
+    .wyc-content img {
+        height: 10em;
+    }
+
+    .tab-btn {
+        font-size: 0.8em;
+    }
+
+    td {
+        font-size: 0.9em;
+    }
+
+    .champion-carousel-item img {
+        width: 4em;
+        height: 7em;
+    }
+
+    .carousel-item {
+        width: 8em;
+        height: 12em;
+    }
+
+    .carousel-image-overflow {
+        height: 6em;
+    }
+}
