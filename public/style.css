@@ -216,9 +216,10 @@ object {
 }
 
 
-.howto-main{
+.howto-main {
     display: flex;
 }
+
 .howto-container {
     border: 1px solid #eaeaea;
     background-color: white;
