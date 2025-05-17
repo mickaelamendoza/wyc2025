@@ -3,6 +3,8 @@
 
 body,
 html {
+    /* height: 100%;
+    width: 100%; */
     margin: 0;
     padding: 0;
     font-family: sans-serif;
@@ -53,22 +55,24 @@ h2 {
 
 .section-container {
     position: relative;
-    height: 100vh;
-    align-items: center;
     z-index: 2;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 
 /* Video Parallax Section */
 .parallax-video {
-    background:
-        linear-gradient(to top, #00000000, #00000000, #02020244, #02020244);
-    height: 100vh;
-    overflow: hidden;
     position: sticky;
     top: 0;
     height: 100vh;
-    background: #3498db;
+    overflow: hidden;
+    background: linear-gradient(to top, #00000000, #00000000, #02020244, #02020244);
     color: white;
     display: flex;
     align-items: center;
@@ -77,15 +81,15 @@ h2 {
 }
 
 .parallax-video video {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
 }
+
+
 
 .countdown-container {
     position: relative;
@@ -124,10 +128,9 @@ h2 {
 
 .content {
     position: relative;
-    z-index: 1;
     color: white;
     text-align: center;
-    padding-top: 30vh;
+    padding-top: 10vh;
     z-index: 0;
     /* Lower z-index for section1 */
 }
@@ -213,6 +216,8 @@ object {
 
 .howto {
     background-color: #3A9D9D;
+    overflow: hidden;
+    width: 100vw;
 }
 
 
@@ -261,7 +266,7 @@ object {
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
     width: 60%;
     height: 12em;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.2s ease-out;
     transform: translateX(0);
     border-radius: 16px;
@@ -294,9 +299,10 @@ object {
     color: #f9f9f9;
     font-family: 'Clofie', sans-serif;
     font-weight: 500;
-    font-size: 40px;
+    font-size: 35px;
     text-transform: uppercase;
     text-align: justify;
+    height: 90%;
 }
 
 .card b {
@@ -306,19 +312,14 @@ object {
 #card3 p,
 #card7 p {
     text-transform: none;
-    font-size: 28px;
+    font-size: 25px;
     color: #ffffff;
 }
 
-#card4 p {
-    text-transform: none;
-    font-size: 32px;
-    color: #1a1a1a;
-}
-
+#card4 p,
 #card6 p {
     text-transform: none;
-    font-size: 32px;
+    font-size: 28px;
     color: #1a1a1a;
 }
 
@@ -326,12 +327,13 @@ object {
     background:
         linear-gradient(to top, #f5f5f5b4, #f5f5f5b4, #f5f5f5b4, #f5f5f5b4),
         url('The Ark of Champions Logo.png');
-
     background-size: contain;
     /* or specify dimensions like 200px 200px */
     background-repeat: no-repeat;
     background-position: center;
     background-color: #F5F5F5;
+    overflow: hidden;
+    width: 100vw;
 }
 
 .champion-info {
@@ -408,6 +410,8 @@ p {
 
 .merch {
     background-color: #0B3876;
+    overflow: hidden;
+    width: 100vw;
 }
 
 .carousel-container {
@@ -449,7 +453,7 @@ p {
 
 .carousel-image-overflow {
     width: 100%;
-    height: 10em;
+    height: 20em;
     overflow: hidden;
     box-sizing: border-box;
     display: flex;
@@ -504,6 +508,8 @@ p {
     background:
         linear-gradient(to top, #0b3876d8, #0b3876d8, #0b3876, #0b3876d8, #0b3876d8),
         url('WYCBG (1).png');
+    overflow: hidden;
+    width: 100vw;
 }
 
 .accordion {
@@ -578,6 +584,7 @@ p {
     justify-content: center;
     align-items: center;
     font-size: 2rem;
+    overflow: hidden;
 }
 
 .program {
@@ -587,6 +594,8 @@ p {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    width: 100vw;
+
 }
 
 .tab-container {
@@ -699,10 +708,14 @@ td:first-child {
 
 .spotify {
     background-color: #F0E059;
+    overflow: hidden;
+    width: 100vw;
 }
 
 .sponsors {
     background-color: #1E1E1E;
+    overflow: hidden;
+    width: 100vw;
 }
 
 .marquee-wrapper {
@@ -728,29 +741,35 @@ td:first-child {
     }
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 3em;
-    }
+/* ====== Responsive Breakpoints ====== */
 
-    h2 {
-        font-size: 1.5em;
+/* For large tablets and small desktops */
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 4em;
+        letter-spacing: 6px;
     }
 
     .content,
     .section {
-        padding: 5vh 5vh;
+        padding: 8vh 6vh;
     }
 
-    .countdown-container {
-        flex-direction: column;
-        gap: 10px;
+    .wyc-text {
+        padding: 2em;
+    }
+
+    .wyc-text h3 {
+        font-size: 30px;
+    }
+
+    .wyc-text p {
+        font-size: 20px;
     }
 
     .countdown-box {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
     }
 
     .countdown-box .value {
@@ -761,89 +780,232 @@ td:first-child {
         font-size: 1.5em;
     }
 
+    .carousel-item {
+        width: 13em;
+        height: 18em;
+    }
+
+    th,
+    td {
+        font-size: 30px;
+    }
+
+    .card p {
+        font-size: 30px
+    }
+
+    .champion-carousel {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .champion-carousel-item {
+        width: 24%;
+        height: 45%;
+    }
+
+    .champion-carousel-item img {
+        width: 9em;
+        height: 9em;
+        object-fit: contain;
+    }
+
+    .champions .section {
+        height: 150vh;
+    }
+
+
+    /* PLS CREATE FOR #card ids */
+}
+
+/* For tablets and mid-sized screens */
+@media (max-width: 850px) {
+    h1 {
+        font-size: 3em;
+        letter-spacing: 4px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        letter-spacing: 4px;
+    }
+
+    .content,
+    .section {
+        padding: 6vh 4vh;
+    }
+
     .wyc-content {
-        flex-direction: column;
+        flex-direction: column-reverse;
+        align-items: center;
     }
 
     .wyc-content img {
+        width: auto;
+        position: relative;
         height: 15em;
+        padding-top: 7em;
+        padding-bottom: 0;
+    }
+
+    th,
+    td {
+        font-size: 24px;
+    }
+
+
+    .wave-section {
+        height: 140vh;
+    }
+
+    .wyc-text {
+        padding: 1em;
+        align-items: center;
+        text-align: center;
+    }
+
+    object {
+        width: 180vw;
+    }
+
+    .champion-carousel-item img {
+        width: 100%;
+        height: auto;
+    }
+
+    .champion-carousel {
+        justify-content: center;
+    }
+
+    .countdown-box {
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+    }
+
+    .countdown-box .value {
+        font-size: 2.5em;
+    }
+
+    .countdown-box .label {
+        font-size: 1.2em;
+    }
+
+    .carousel-item {
+        width: 11em;
+        height: 16em;
     }
 
     .tab-container {
         flex-direction: column;
+        width: 100%;
+
     }
 
     .tab-buttons {
-        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
-        gap: 5px;
+        height: 10%;
     }
 
     .tab-btn {
+        padding: 10px;
         border-radius: 10px 10px 0 0;
     }
 
     .tab-content {
+        flex-direction: column;
+        padding-left: 1em;
+        padding-top: 1em;
+        width: auto;
+        height: 100%;
         border-radius: 0 0 10px 10px;
     }
 
-    table {
-        width: 100%;
+    #card2 p {
+        font-size: 23px;
     }
 
-    .Secondtable td:first-child {
-        width: 30%;
+    #card3 p {
+        font-size: 17px;
     }
 
-    .image-container {
-        flex-direction: column;
-        height: auto;
+    #card6 p {
+        font-size: 18px;
+
     }
 
-    .image-container img,
-    .card {
-        width: 90%;
-        height: 10em;
+    #card4 p {
+        font-size: 19px;
+
     }
 
-    .champion-carousel {
-        flex-direction: column;
-        align-items: center;
+    #card7 p {
+        font-size: 16px;
+
     }
 
-    .champion-carousel-item img {
-        width: 5em;
-        height: 9em;
+    .champion-info p {
+        font-size: 20px;
     }
 
-    .carousel-item {
-        width: 10em;
-        height: 15em;
-    }
-
-    .carousel-image-overflow {
-        height: 7em;
-    }
-
-    .accordion-header {
-        font-size: 0.9em;
-    }
 }
 
-@media (max-width: 480px) {
+/* For mobile phones */
+@media (max-width: 400px) {
     h1 {
         font-size: 2em;
-        letter-spacing: 5px;
+        letter-spacing: 2px;
     }
 
     h2 {
         font-size: 1.2em;
-        letter-spacing: 5px;
+        letter-spacing: 2px;
+    }
+
+    .content,
+    .section {
+        padding: 4vh 2vh;
+    }
+
+    object {
+        width: 250vw;
+    }
+
+    .wyc-content img {
+        width: 40%;
+        height: auto;
+        padding-top: 10em;
+    }
+
+    .wave-section {
+        height: 110vh;
+    }
+
+    .wave-content {
+        height: 120vh;
+        font-size: 1rem;
+    }
+
+    .wyc-text h3 {
+        font-size: 24px;
+        text-align: center;
+        margin: 0;
+    }
+
+    .wyc-text p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .countdown-container {
+        flex-direction: row;
+        gap: 10px;
     }
 
     .countdown-box {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
     }
 
     .countdown-box .value {
@@ -854,29 +1016,131 @@ td:first-child {
         font-size: 1em;
     }
 
-    .wyc-content img {
-        height: 10em;
+    .section {
+        height: 60vh;
+        justify-content: flex-start;
+
     }
 
     .tab-btn {
-        font-size: 0.8em;
+        font-size: 20px;
     }
 
+    th,
     td {
-        font-size: 0.9em;
+        font-size: 14px;
     }
 
-    .champion-carousel-item img {
-        width: 4em;
-        height: 7em;
+    .tab-container {
+        justify-content: flex-start;
+        height: 90%;
+    }
+
+    .tab-content {
+        padding-left: 10px;
+        padding-top: 10px;
+
+    }
+
+    .tab-buttons {
+        height: 10%;
+
+    }
+
+
+    table {
+        width: 100%;
+
+    }
+
+    .Secondtable td:first-child {
+        width: 25%;
+    }
+
+    .image-container {
+        padding: 5px;
+        gap: 10px;
+        height: 27em;
+        flex-direction: column;
+    }
+
+    .image-container img,
+    .card {
+        border-radius: 5px;
+        width: 100%;
+        height: 90%;
+    }
+
+    .image-container img {
+        height: 120%;
+        object-fit: contain;
+    }
+
+    #card2 p {
+        font-size: 15px;
+    }
+
+    #card3 p {
+        font-size: 14px;
+    }
+
+    #card6 p {
+        font-size: 15px;
+    }
+
+    #card4 p {
+        font-size: 16px;
+    }
+
+    #card7 p {
+        font-size: 13.5px;
+    }
+
+    .champion-info p {
+        font-size: 14px;
+    }
+
+    .champion-carousel-item {
+        width: 45%;
+        height: 40%;
+    }
+
+    .champions .section {
+        height: auto;
+    }
+
+    .champion-carousel-item:active .caption:active {
+        display: flex;
+        font-family: 'Clofie', sans-serif;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 8px;
+        font-size: 14px;
+        color: #333;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        height: 0;
+        background-color: #fff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
     }
 
     .carousel-item {
-        width: 8em;
-        height: 12em;
+        width: 9em;
+        height: 14em;
     }
 
-    .carousel-image-overflow {
-        height: 6em;
+    .carousel-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .accordion-header {
+        font-size: 0.9em;
+    }
+
+    .accordion-content p {
+        font-size: 0.9em;
     }
 }
