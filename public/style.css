@@ -215,7 +215,7 @@ object {
 
 
 .howto {
-    background-color: #3A9D9D;
+    background: url('WYCBG (4).jpg');
     overflow: hidden;
     width: 100vw;
 }
@@ -225,12 +225,38 @@ object {
     display: flex;
 }
 
+
 .howto-container {
     border: 1px solid #eaeaea;
     background-color: white;
     border-radius: 10px;
+    margin: .5em;
+    padding: 1em;
     font-size: 20px;
+    width: 100%;
 }
+
+.howto-container h5 {
+    margin: 0 0 15px 0;
+    font-size: 24px;
+}
+
+#section3 {
+    height: 80vh;
+}
+
+.howto-container p,
+.howto-container ol {
+    font-family: 'Clofie', sans-serif;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+}
+
+.instructions {
+    padding: 1em;
+}
+
 
 .festival {
     background-image: url('WYCBG.jpg');
@@ -574,7 +600,6 @@ p {
     margin: 1rem 0;
 }
 
-
 /* Extra content section */
 .section {
     height: 90vh;
@@ -736,7 +761,7 @@ td:first-child {
     }
 
     100% {
-        transform: translateX(-100%);
+        transform: translateX(-80%);
     }
 }
 
@@ -1197,6 +1222,5 @@ td:first-child {
     .accordion-content p {
         font-size: 18px;
     }
-
 
 }
