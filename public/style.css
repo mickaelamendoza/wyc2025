@@ -444,6 +444,7 @@ p {
 }
 
 .merch {
+    display: none;
     background-color: #0B3876;
     overflow: hidden;
     width: 100vw;
@@ -747,7 +748,7 @@ td:first-child {
 }
 
 .sponsors {
-    background-color: #1E1E1E;
+    background-color: #F5F5F5;
     overflow: hidden;
     width: 100vw;
 }
@@ -1232,5 +1233,4 @@ td:first-child {
     .accordion-content p {
         font-size: 18px;
     }
-
 }
