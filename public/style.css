@@ -393,7 +393,6 @@ object {
     background-color: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-
 }
 
 h4,
@@ -787,7 +786,16 @@ td:first-child {
 
     th,
     td {
-        font-size: 30px;
+        font-size: 24px;
+    }
+
+    td:first-child {
+        width: 35%;
+
+    }
+
+    .Secondtable td:first-child {
+        width: 20%;
     }
 
     .card p {
@@ -816,6 +824,19 @@ td:first-child {
 
 
     /* PLS CREATE FOR #card ids */
+}
+
+@media (max-width: 1000px) {
+
+    object {
+        width: 120vw;
+    }
+
+    .wyc-content img {
+        height: 11em;
+        padding: 1em;
+    }
+
 }
 
 /* For tablets and mid-sized screens */
@@ -851,6 +872,11 @@ td:first-child {
     th,
     td {
         font-size: 24px;
+    }
+
+
+    td:first-child {
+        width: 40%;
     }
 
 
@@ -953,19 +979,26 @@ td:first-child {
 
 /* For mobile phones */
 @media (max-width: 400px) {
+
+
     h1 {
         font-size: 2em;
         letter-spacing: 2px;
     }
 
     h2 {
-        font-size: 1.2em;
+        font-size: 1em;
         letter-spacing: 2px;
     }
 
     .content,
     .section {
         padding: 4vh 2vh;
+    }
+
+
+    .parallax-video {
+        height: 100vh;
     }
 
     object {
@@ -983,7 +1016,7 @@ td:first-child {
     }
 
     .wave-content {
-        height: 120vh;
+        height: 100vh;
         font-size: 1rem;
     }
 
@@ -1039,7 +1072,7 @@ td:first-child {
     .tab-content {
         padding-left: 10px;
         padding-top: 10px;
-
+        justify-content: center;
     }
 
     .tab-buttons {
@@ -1056,6 +1089,8 @@ td:first-child {
     .Secondtable td:first-child {
         width: 25%;
     }
+
+
 
     .image-container {
         padding: 5px;
@@ -1109,25 +1144,44 @@ td:first-child {
         height: auto;
     }
 
-    .champion-carousel-item:active .caption:active {
+    .champion-carousel-item {
         display: flex;
-        font-family: 'Clofie', sans-serif;
-        flex-direction: column;
-        justify-content: center;
-        margin-top: 8px;
-        font-size: 14px;
-        color: #333;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        height: 0;
-        background-color: #fff;
+
+    }
+
+    .champion-carousel-item img {
+        height: 8em;
+
+    }
+
+    .champion-carousel-item .caption {
+        position: absolute;
+        overflow: hidden;
+        background: white;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         border-radius: 10px;
+        width: 12em;
+    }
+
+    .champion-carousel-item.selected .caption {
+        opacity: 1;
+        height: 18em;
+    }
+
+    .champion-carousel-item.selected img {
+        transform: scale(1.1);
+        opacity: 0;
+    }
+
+    .caption h4,
+    .caption p {
+        padding: 3px;
+        font-size: 13px;
     }
 
     .carousel-item {
         width: 9em;
-        height: 14em;
+        height: 10em;
     }
 
     .carousel-btn {
@@ -1137,10 +1191,12 @@ td:first-child {
     }
 
     .accordion-header {
-        font-size: 0.9em;
+        font-size: 18px;
     }
 
     .accordion-content p {
-        font-size: 0.9em;
+        font-size: 18px;
     }
+
+
 }
