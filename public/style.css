@@ -215,8 +215,9 @@ object {
 
 
 .howto {
-    background: url('WYCBG (4).jpg');
+    background-color: #3A9D9D;
     overflow: hidden;
+    color: #fff;
     width: 100vw;
 }
 
@@ -227,13 +228,19 @@ object {
 
 
 .howto-container {
-    border: 1px solid #eaeaea;
-    background-color: white;
+    background-color: #0B3876;
+    color: #fff;
     border-radius: 10px;
     margin: .5em;
     padding: 1em;
     font-size: 20px;
     width: 100%;
+    font-size: 14px;
+    height: 20em;
+    object-fit: contain;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .howto-container h5 {
@@ -248,13 +255,16 @@ object {
 .howto-container p,
 .howto-container ol {
     font-family: 'Clofie', sans-serif;
-    font-size: 18px;
     padding: 0;
     margin: 0;
 }
 
 .instructions {
-    padding: 1em;
+    color: #333;
+    padding: 2em;
+    background: #fff;
+    border-radius: 5px;
+    height: 100%;
 }
 
 
