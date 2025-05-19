@@ -15,6 +15,7 @@ h1 {
     font-size: 6em;
     font-weight: 800;
     letter-spacing: 10px;
+    color: #E7252D;
 }
 
 h2 {
@@ -73,7 +74,6 @@ h2 {
     height: 100vh;
     overflow: hidden;
     background: linear-gradient(to top, #00000000, #00000000, #02020244, #02020244);
-    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -175,6 +175,7 @@ object {
 .wyc-content {
     display: flex;
     flex-direction: row;
+    background: transparent;
 }
 
 .wyc-content img {
@@ -215,10 +216,15 @@ object {
 
 
 .howto {
-    background-color: #3A9D9D;
+    background: linear-gradient(to top, #3a9d9d85, #3a9d9d85, #3a9d9d85, #3a9d9d85),
+        url('WYCBG (3).jpg');
     overflow: hidden;
     color: #fff;
     width: 100vw;
+}
+
+#section3 h2 {
+    color: #0b3876;
 }
 
 
@@ -550,23 +556,24 @@ p {
 
 .accordion {
     font-family: 'Clofie', sans-serif;
-    font-size: 1em;
+    font-size: 18px;
     font-weight: 400;
     width: 100%;
-    height: 100%;
+    height: 42rem;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    overflow: hidden;
 }
 
 .accordion-header {
     width: 100%;
     border-radius: 8px;
-    padding: 0 1em;
+    padding: 0 .5em;
     background-color: #222;
     color: white;
     font-family: 'Clofie', sans-serif;
-    font-size: 1em;
+    font-size: 24px;
     font-weight: 400;
     border: none;
     outline: none;
@@ -799,7 +806,7 @@ td:first-child {
     }
 
     .wyc-text p {
-        font-size: 20px;
+        font-size: 17px;
     }
 
     .countdown-box {
@@ -822,7 +829,7 @@ td:first-child {
 
     th,
     td {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     td:first-child {
@@ -858,6 +865,13 @@ td:first-child {
         height: 150vh;
     }
 
+    .instructions {
+        padding: 1.5em;
+        overflow-y: scroll;
+        height: 60%
+    }
+
+
 
     /* PLS CREATE FOR #card ids */
 }
@@ -868,10 +882,15 @@ td:first-child {
         width: 120vw;
     }
 
+    .wyc-content {
+        background: linear-gradient(to top, #0B3876, #0B3876, #00000000)
+    }
+
     .wyc-content img {
         height: 11em;
         padding: 1em;
     }
+
 
 }
 
@@ -907,7 +926,7 @@ td:first-child {
 
     th,
     td {
-        font-size: 24px;
+        font-size: 20px;
     }
 
 
@@ -1041,10 +1060,13 @@ td:first-child {
         width: 250vw;
     }
 
+    .wyc-content {
+        background: transparent;
+    }
+
     .wyc-content img {
         width: 40%;
         height: auto;
-        padding-top: 10em;
     }
 
     .wave-section {
@@ -1052,7 +1074,7 @@ td:first-child {
     }
 
     .wave-content {
-        height: 100vh;
+        height: 120vh;
         font-size: 1rem;
     }
 
@@ -1116,7 +1138,6 @@ td:first-child {
 
     }
 
-
     table {
         width: 100%;
 
@@ -1125,8 +1146,6 @@ td:first-child {
     .Secondtable td:first-child {
         width: 25%;
     }
-
-
 
     .image-container {
         padding: 5px;
@@ -1234,4 +1253,1311 @@ td:first-child {
         font-size: 18px;
     }
 
+}
+
+@media(max-height:700px) {
+    .wyc-content img {
+        width: 30%;
+        height: auto;
+    }
+
+    .wyc-text h3 {
+        font-size: 12px;
+    }
+
+    .wyc-text p {
+        font-size: 12px;
+    }
+
+    th,
+    td {
+        font-size: 12px;
+
+    }
+
+    #section6,
+    #section3 {
+        height: 100%;
+    }
+}@import url('https://fonts.cdnfonts.com/css/geizer');
+@import url('https://fonts.cdnfonts.com/css/clofie');
+
+body,
+html {
+    /* height: 100%;
+    width: 100%; */
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+h1 {
+    font-family: 'Geizer', sans-serif;
+    font-size: 6em;
+    font-weight: 800;
+    letter-spacing: 10px;
+    color: #E7252D;
+}
+
+h2 {
+    font-family: 'Geizer', sans-serif;
+    font-size: 2em;
+    font-weight: 800;
+    letter-spacing: 10px;
+    color: #9bcccc;
+}
+
+.content,
+.section {
+    overflow: auto;
+    padding: 10vh 10vh;
+}
+
+.logo-image {
+    height: auto;
+    width: 8em;
+}
+
+.section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.container {
+    height: auto;
+    position: relative;
+}
+
+.section-container {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Video Parallax Section */
+.parallax-video {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(to top, #00000000, #00000000, #02020244, #02020244);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.parallax-video video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+}
+
+
+
+.countdown-container {
+    position: relative;
+    justify-content: center;
+    display: flex;
+    gap: 15px;
+}
+
+.countdown-box {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    color: #F0E059;
+    font-weight: 600;
+    min-width: 60px;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.countdown-box .value {
+    font-size: 4em;
+    line-height: 1;
+}
+
+.countdown-box .label {
+    font-size: 2em;
+    color: rgb(214, 214, 214);
+    margin-top: 4px;
+}
+
+.content {
+    position: relative;
+    color: white;
+    text-align: center;
+    padding-top: 10vh;
+    z-index: 0;
+    /* Lower z-index for section1 */
+}
+
+/* SVG Parallax Section */
+.wave-section {
+    position: relative;
+    height: 120vh;
+    overflow: hidden;
+    background: transparent;
+    z-index: 2;
+    /* Higher z-index for the wave section */
+}
+
+.wave-svg {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    /* allows clicking through */
+    /* Initial state */
+    transform: translateY(0);
+    /* Initial state */
+}
+
+object {
+    width: 100vw;
+}
+
+.wave-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+    height: 150vh;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wyc-content {
+    display: flex;
+    flex-direction: row;
+    background: transparent;
+}
+
+.wyc-content img {
+    width: auto;
+    position: relative;
+    height: 20em;
+    padding: 2em;
+}
+
+.wyc-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: 2em 1em 0 5em;
+}
+
+.wyc-text h3 {
+    font-family: 'Geizer', sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    color: #F0E059;
+}
+
+.wyc-text p {
+    font-family: 'Clofie', sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.wyc-text strong {
+    font-family: 'Clofie', sans-serif;
+    font-weight: 800;
+    color: #F0E059;
+}
+
+
+.howto {
+    background: linear-gradient(to top, #3a9d9d85, #3a9d9d85, #3a9d9d85, #3a9d9d85),
+        url('WYCBG (3).jpg');
+    overflow: hidden;
+    color: #fff;
+    width: 100vw;
+}
+
+#section3 h2 {
+    color: #0b3876;
+}
+
+
+.howto-main {
+    display: flex;
+}
+
+
+.howto-container {
+    background-color: #0B3876;
+    color: #fff;
+    border-radius: 10px;
+    margin: .5em;
+    padding: 1em;
+    font-size: 20px;
+    width: 100%;
+    font-size: 14px;
+    height: 20em;
+    object-fit: contain;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.howto-container h5 {
+    margin: 0 0 15px 0;
+    font-size: 24px;
+}
+
+#section3 {
+    height: 80vh;
+}
+
+.howto-container p,
+.howto-container ol {
+    font-family: 'Clofie', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.instructions {
+    color: #333;
+    padding: 2em;
+    background: #fff;
+    border-radius: 5px;
+    height: 100%;
+}
+
+
+.festival {
+    background-image: url('WYCBG.jpg');
+}
+
+.collage {
+    display: flex;
+    flex-direction: column;
+}
+
+.image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.image-container {
+    width: 100%;
+    height: 20em;
+    overflow: hidden;
+    position: relative;
+    padding: 10px;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container img,
+.card {
+    background-color: aliceblue;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    width: 60%;
+    height: 12em;
+    object-fit: contain;
+    transition: transform 0.2s ease-out;
+    transform: translateX(0);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111;
+    font-size: 24px;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+#card1,
+#card7,
+#card5 {
+    background-color: #E7252D;
+}
+
+#card6,
+#card4 {
+    background-color: #F0E059;
+}
+
+#card2,
+#card3 {
+    background-color: #17406F;
+}
+
+.card p {
+    color: #f9f9f9;
+    font-family: 'Clofie', sans-serif;
+    font-weight: 500;
+    font-size: 35px;
+    text-transform: uppercase;
+    text-align: justify;
+    height: 90%;
+}
+
+.card b {
+    font-weight: 800;
+}
+
+#card3 p,
+#card7 p {
+    text-transform: none;
+    font-size: 25px;
+    color: #ffffff;
+}
+
+#card4 p,
+#card6 p {
+    text-transform: none;
+    font-size: 28px;
+    color: #1a1a1a;
+}
+
+.champions {
+    background:
+        linear-gradient(to top, #f5f5f5b4, #f5f5f5b4, #f5f5f5b4, #f5f5f5b4),
+        url('The Ark of Champions Logo.png');
+    background-size: contain;
+    /* or specify dimensions like 200px 200px */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #F5F5F5;
+    overflow: hidden;
+    width: 100vw;
+}
+
+.champion-info {
+    display: flex;
+    flex-direction: column;
+    height: 20%;
+}
+
+.champion-info p {
+    font-family: 'Clofie', sans-serif;
+    font-size: 21px;
+    font-weight: normal;
+}
+
+.champions h2 {
+    color: #0b3876;
+}
+
+.champion-carousel {
+    display: flex;
+    height: 100%;
+}
+
+.champion-carousel-item {
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.champion-carousel-item img {
+    width: 7em;
+    height: 11em;
+    object-fit: cover;
+    transition: transform 0.3s;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.champion-carousel-item img:hover {
+    transform: scale(1.05);
+}
+
+.champion-carousel-item.selected img {
+    transform: scale(1.1);
+}
+
+.champion-carousel-item .caption {
+    display: flex;
+    font-family: 'Clofie', sans-serif;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #333;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    height: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+h4,
+h2,
+p {
+    margin: 0;
+    padding: 10px;
+}
+
+.champion-carousel-item.selected .caption {
+    opacity: 1;
+    height: auto;
+}
+
+.merch {
+    display: none;
+    background-color: #0B3876;
+    overflow: hidden;
+    width: 100vw;
+}
+
+.carousel-container {
+    width: 90%;
+    height: 90%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 20px;
+    scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-item {
+    width: 15em;
+    height: 20em;
+    background: #fff;
+    color: #000;
+    border-radius: 12px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.carousel-image-overflow {
+    width: 100%;
+    height: 20em;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+
+}
+
+.carousel-item img {
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-item p {
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.carousel-btn {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background 0.3s;
+}
+
+.carousel-btn:hover {
+    border: 1px solid #6e6e6e;
+}
+
+.carousel-btn.left {
+    left: 0;
+}
+
+.carousel-btn.right {
+    right: 0;
+}
+
+
+.faq {
+    background:
+        linear-gradient(to top, #0b3876d8, #0b3876d8, #0b3876, #0b3876d8, #0b3876d8),
+        url('WYCBG (1).png');
+    overflow: hidden;
+    width: 100vw;
+}
+
+.accordion {
+    font-family: 'Clofie', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    width: 100%;
+    height: 42rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    width: 100%;
+    border-radius: 8px;
+    padding: 0 .5em;
+    background-color: #222;
+    color: white;
+    font-family: 'Clofie', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: #444;
+
+}
+
+.arrow {
+    font-size: 2em;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active {
+    transition: transform 0.3s ease;
+    border-radius: 8px 8px 0 0;
+
+}
+
+.accordion-header.active .arrow {
+    transition: transform 0.5s ease;
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    background: #f9f9f9;
+    transition: max-height 0.4s ease;
+    padding: 0 1rem;
+    border-radius: 0 0 8px 8px;
+}
+
+.accordion-content p {
+    margin: 1rem 0;
+}
+
+/* Extra content section */
+.section {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    overflow: hidden;
+}
+
+.program {
+    background:
+        linear-gradient(to top, #0b387650, #0b387650, #0b3876, #0b3876),
+        url('WYCBG (2).png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+
+}
+
+.tab-container {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.tab-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.tab-btn {
+    height: 100%;
+    padding: 10px 20px;
+    background-color: #F0E059;
+    border: none;
+    border-radius: 10px 0 0 10px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    color: #fff;
+    transition: background 0.3s;
+}
+
+.tab-btn:hover {
+    background-color: #be9840;
+}
+
+.tab-btn.active {
+    background-color: #ffffff;
+    color: #F0E059
+}
+
+.tab-content {
+    padding: 1em 2em;
+    width: 100%;
+    background:
+        linear-gradient(to top, #f5f5f5b4, #f5f5f5b4, #f5f5f5b4, #f5f5f5b4),
+        url('WYCBG (2).jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.tab-panel {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+    width: 100%;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tab-highlight {
+    color: #E7252D;
+    font-weight: bolder;
+}
+
+
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+}
+
+th,
+td {
+    font-size: 1em;
+    font-weight: 800;
+    font-family: 'Clofie', sans-serif;
+    text-align: left;
+    border: 1px solid transparent;
+    /* Transparent border */
+}
+
+td:first-child {
+    font-weight: 500;
+    width: 30%;
+}
+
+.Secondtable {
+    width: 100%;
+}
+
+.Secondtable td:first-child {
+    width: 15%;
+}
+
+.spotify {
+    background-color: #F0E059;
+    overflow: hidden;
+    width: 100vw;
+}
+
+.sponsors {
+    background-color: #F5F5F5;
+    overflow: hidden;
+    width: 100vw;
+}
+
+.marquee-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.marquee {
+    display: inline-flex;
+    gap: 100px;
+    animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-80%);
+    }
+}
+
+/* ====== Responsive Breakpoints ====== */
+
+/* For large tablets and small desktops */
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 4em;
+        letter-spacing: 6px;
+    }
+
+    .content,
+    .section {
+        padding: 8vh 6vh;
+    }
+
+    .wyc-text {
+        padding: 2em;
+    }
+
+    .wyc-text h3 {
+        font-size: 30px;
+    }
+
+    .wyc-text p {
+        font-size: 17px;
+    }
+
+    .countdown-box {
+        width: 120px;
+        height: 120px;
+    }
+
+    .countdown-box .value {
+        font-size: 3em;
+    }
+
+    .countdown-box .label {
+        font-size: 1.5em;
+    }
+
+    .carousel-item {
+        width: 13em;
+        height: 18em;
+    }
+
+    th,
+    td {
+        font-size: 20px;
+    }
+
+    td:first-child {
+        width: 35%;
+
+    }
+
+    .Secondtable td:first-child {
+        width: 20%;
+    }
+
+    .card p {
+        font-size: 30px
+    }
+
+    .champion-carousel {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .champion-carousel-item {
+        width: 24%;
+        height: 45%;
+    }
+
+    .champion-carousel-item img {
+        width: 9em;
+        height: 9em;
+        object-fit: contain;
+    }
+
+    .champions .section {
+        height: 150vh;
+    }
+
+    .instructions {
+        padding: 1.5em;
+        overflow-y: scroll;
+        height: 60%
+    }
+
+
+
+    /* PLS CREATE FOR #card ids */
+}
+
+@media (max-width: 1000px) {
+
+    object {
+        width: 120vw;
+    }
+
+    .wyc-content {
+        background: linear-gradient(to top, #0B3876, #0B3876, #00000000)
+    }
+
+    .wyc-content img {
+        height: 11em;
+        padding: 1em;
+    }
+
+
+}
+
+/* For tablets and mid-sized screens */
+@media (max-width: 850px) {
+    h1 {
+        font-size: 3em;
+        letter-spacing: 4px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        letter-spacing: 4px;
+    }
+
+    .content,
+    .section {
+        padding: 6vh 4vh;
+    }
+
+    .wyc-content {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .wyc-content img {
+        width: auto;
+        position: relative;
+        height: 15em;
+        padding-top: 7em;
+        padding-bottom: 0;
+    }
+
+    th,
+    td {
+        font-size: 20px;
+    }
+
+
+    td:first-child {
+        width: 40%;
+    }
+
+
+    .wave-section {
+        height: 140vh;
+    }
+
+    .wyc-text {
+        padding: 1em;
+        align-items: center;
+        text-align: center;
+    }
+
+    object {
+        width: 180vw;
+    }
+
+    .champion-carousel-item img {
+        width: 100%;
+        height: auto;
+    }
+
+    .champion-carousel {
+        justify-content: center;
+    }
+
+    .countdown-box {
+        width: 100px;
+        height: 100px;
+        padding: 10px;
+    }
+
+    .countdown-box .value {
+        font-size: 2.5em;
+    }
+
+    .countdown-box .label {
+        font-size: 1.2em;
+    }
+
+    .carousel-item {
+        width: 11em;
+        height: 16em;
+    }
+
+    .tab-container {
+        flex-direction: column;
+        width: 100%;
+
+    }
+
+    .tab-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+        height: 10%;
+    }
+
+    .tab-btn {
+        padding: 10px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .tab-content {
+        flex-direction: column;
+        padding-left: 1em;
+        padding-top: 1em;
+        width: auto;
+        height: 100%;
+        border-radius: 0 0 10px 10px;
+    }
+
+    #card2 p {
+        font-size: 23px;
+    }
+
+    #card3 p {
+        font-size: 17px;
+    }
+
+    #card6 p {
+        font-size: 18px;
+
+    }
+
+    #card4 p {
+        font-size: 19px;
+
+    }
+
+    #card7 p {
+        font-size: 16px;
+
+    }
+
+    .champion-info p {
+        font-size: 20px;
+    }
+
+}
+
+/* For mobile phones */
+@media (max-width: 400px) {
+
+
+    h1 {
+        font-size: 2em;
+        letter-spacing: 2px;
+    }
+
+    h2 {
+        font-size: 1em;
+        letter-spacing: 2px;
+    }
+
+    .content,
+    .section {
+        padding: 4vh 2vh;
+    }
+
+
+    .parallax-video {
+        height: 100vh;
+    }
+
+    object {
+        width: 250vw;
+    }
+
+    .wyc-content {
+        background: transparent;
+    }
+
+    .wyc-content img {
+        width: 40%;
+        height: auto;
+    }
+
+    .wave-section {
+        height: 110vh;
+    }
+
+    .wave-content {
+        height: 120vh;
+        font-size: 1rem;
+    }
+
+    .wyc-text h3 {
+        font-size: 24px;
+        text-align: center;
+        margin: 0;
+    }
+
+    .wyc-text p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .countdown-container {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .countdown-box {
+        width: 60px;
+        height: 60px;
+    }
+
+    .countdown-box .value {
+        font-size: 2em;
+    }
+
+    .countdown-box .label {
+        font-size: 1em;
+    }
+
+    .section {
+        height: 60vh;
+        justify-content: flex-start;
+
+    }
+
+    .tab-btn {
+        font-size: 20px;
+    }
+
+    th,
+    td {
+        font-size: 14px;
+    }
+
+    .tab-container {
+        justify-content: flex-start;
+        height: 90%;
+    }
+
+    .tab-content {
+        padding-left: 10px;
+        padding-top: 10px;
+        justify-content: center;
+    }
+
+    .tab-buttons {
+        height: 10%;
+
+    }
+
+    table {
+        width: 100%;
+
+    }
+
+    .Secondtable td:first-child {
+        width: 25%;
+    }
+
+    .image-container {
+        padding: 5px;
+        gap: 10px;
+        height: 27em;
+        flex-direction: column;
+    }
+
+    .image-container img,
+    .card {
+        border-radius: 5px;
+        width: 100%;
+        height: 90%;
+    }
+
+    .image-container img {
+        height: 120%;
+        object-fit: contain;
+    }
+
+    #card2 p {
+        font-size: 15px;
+    }
+
+    #card3 p {
+        font-size: 14px;
+    }
+
+    #card6 p {
+        font-size: 15px;
+    }
+
+    #card4 p {
+        font-size: 16px;
+    }
+
+    #card7 p {
+        font-size: 13.5px;
+    }
+
+    .champion-info p {
+        font-size: 14px;
+    }
+
+    .champion-carousel-item {
+        width: 45%;
+        height: 40%;
+    }
+
+    .champions .section {
+        height: auto;
+    }
+
+    .champion-carousel-item {
+        display: flex;
+
+    }
+
+    .champion-carousel-item img {
+        height: 8em;
+
+    }
+
+    .champion-carousel-item .caption {
+        position: absolute;
+        overflow: hidden;
+        background: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        width: 12em;
+    }
+
+    .champion-carousel-item.selected .caption {
+        opacity: 1;
+        height: 18em;
+    }
+
+    .champion-carousel-item.selected img {
+        transform: scale(1.1);
+        opacity: 0;
+    }
+
+    .caption h4,
+    .caption p {
+        padding: 3px;
+        font-size: 13px;
+    }
+
+    .carousel-item {
+        width: 9em;
+        height: 10em;
+    }
+
+    .carousel-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .accordion-header {
+        font-size: 18px;
+    }
+
+    .accordion-content p {
+        font-size: 18px;
+    }
+
+}
+
+@media(max-height:700px) {
+    .wyc-content img {
+        width: 30%;
+        height: auto;
+    }
+
+    .wyc-text h3 {
+        font-size: 12px;
+    }
+
+    .wyc-text p {
+        font-size: 12px;
+    }
+
+    th,
+    td {
+        font-size: 12px;
+
+    }
+
+    #section6,
+    #section3 {
+        height: 100%;
+    }
 }
